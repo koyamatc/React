@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="jp">
+	<head>
+  	<meta charset="utf-8"/>
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../assets/googlecodeprettify/sons-of-obsidian.css" rel="stylesheet">
+  	<title>React-bootstrap test</title>
+ 	<body>
+ 		<div class="container">
+   <div class="row hidden-xs">
+      <div class="col-sm-3 col-md-3">
+        <div id="item1" class="item"></div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+        <div id="item2" class="item"></div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+        <div id="item3" class="item"></div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+        <div id="item4" class="item"></div>
+      </div>
+    </div><!--/row-->
+
+    <div class="row">
+      <div class="col-sm-3 col-md-3 hidden-xs">
+        <div id="item9" class="item"></div>
+        <div id="item10" class="item"></div>
+      </div>
+      <div class="col-sm-6 col-md-6">
+        <div class="row">
+           <div id="logoContainer"></div>
+        </div>
+        <div class="row">
+          
+        </div>
+        <div class="row">
+        </div>
+      </div>
+      <div class="col-sm-3 col-md-3 hidden-xs">
+        <div id="item11" class="item"></div>
+        <div id="item12" class="item"></div>
+      </div>
+    </div><!--/row-->
+
+    <div class="row hidden-xs">
+      <div class="col-sm-3 col-md-3">
+        <div id="item5" class="item"></div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+        <div id="item6" class="item"></div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+        <div id="item7" class="item"></div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+        <div id="item8" class="item"></div>
+      </div>
+    </div><!--/row--> 			
+      <div id="menuButtonsContainer"></div>
+
+    <div class="row visible-xs">
+      <div class="col-xs-12">
+        <div id="itemxs1" class="itemxs">item</div>
+      </div>
+      <div class="col-xs-12">
+        <div id="itemxs2" class="itemxs">item</div>
+      </div>
+      <div class="col-xs-12">
+        <div id="itemxs3" class="itemxs">item</div>
+      </div>
+      <div class="col-xs-12">
+        <div id="itemxs4" class="itemxs">item</div>
+      </div>
+      <div class="col-xs-12">
+        <div id="itemxs5" class="itemxs">item</div>
+      </div>
+      <div class="col-xs-12">
+        <div id="itemxs6" class="itemxs">item</div>
+      </div>
+      <div class="col-xs-12">
+        <div id="itemxs7" class="itemxs">item</div>
+      </div>
+      <div class="col-xs-12">
+        <div id="itemxs8" class="itemxs">item</div>
+      </div>
+      <div class="col-xs-12">
+        <div id="itemxs9" class="itemxs">item</div>
+      </div>
+      <div class="col-xs-12">
+        <div id="itemxs10" class="itemxs">item</div>
+      </div>
+      <div class="col-xs-12">
+        <div id="itemxs11" class="itemxs">item</div>
+      </div>
+      <div class="col-xs-12">
+        <div id="itemxs12" class="itemxs">item</div>
+      </div>
+    </div><!--/row-->
+
+    <h3 class="text-white">React-bootstrap.jsでメニューボタンを作成する
+      （ES6+）
+    </h3>
+    <p class="text-white">
+    babel と webpack で　React コンポーネントを ES6+ 形式で定義してみました。
+    <br>
+    当初、コンパイル・エラーが解決できず苦戦
+    <br>
+    原因は、　webpack.config.js の設定で下記を追加することで解消
+    </p>
+ <pre>
+ optional: ["es7.decorators", "es7.classProperties"]   
+ </pre>
+
+<h4>
+<span class="label label-default">ReactBS-menuButtons.js</span>
+</h4>
+<pre>
+// MenuButton Component
+class MenuButton extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static propTypes = {
+      id:  React.PropTypes.string,
+      label: React.PropTypes.string,
+  }
+  state = {
+      id: this.props.id ? this.props.id : 'menuBtn-' + uniqueId('menuBtn-')
+  }
+  handleClick = (e) => {
+
+     this.setState({selectedButton:e.target.id});
+
+      switch (e.target.id) {
+        case 'menuBtn-1': 
+            setItem(pgms);
+            break;
+        case 'menuBtn-2': 
+            setItem(jslibs);
+            break;
+        case 'menuBtn-3': 
+            setItem(dv);
+            break;
+        case 'menuBtn-4':
+            setItem(benefits);
+            break;
+        case 'menuBtn-5': 
+            setItem(boards);
+            break;
+        case 'menuBtn-6': 
+            setItem(me);
+      };
+  }
+  render() {
+    return (
+        &lt;Col sm={4} md={2}>
+        &lt;Button 
+          bsStyle='info'
+          bsSize='medium'
+          block='true'
+          id={this.state.id}
+          key={this.state.id}
+          onClick={this.handleClick}
+        >
+        {this.props.label}
+        &lt;/Button>
+        &lt;/Col>
+    );
+  }
+}
+
+// MenuButtons 
+class MenuButtons extends React.Component {
+  state = {
+    selectedButton: null,
+    labels: labels,
+  }
+  render() {
+    var buttons = this.state.labels.map( (label,i) =>{
+      return (
+        &lt;MenuButton label={label}>
+        &lt;/MenuButton>
+      );
+    });
+    return (
+      &lt;Row className="menu-row">
+        {buttons}
+      &lt;/Row>
+    );
+  }
+
+}
+
+module.exports = MenuButtons;
+</pre>
+
+<h4>
+<span class="label label-default">webpack.config.js</span>
+</h4>
+<pre>
+var path = require('path');
+
+module.exports = {
+	// Application entry point
+	entry: './app.js',
+	output:{
+		// ﾌｧｲﾙの出力先
+		path: __dirname,
+		// output file name
+		filename :'bundle.js'
+	},
+	module: {
+		loaders: [
+			{
+				test: /\.(css)$/,
+				// 複数のローダーを"!"で接続できる
+				loader: 'style-loader!css-loader'
+			},
+			{
+				test: /\.js$/,
+				exclude:/node_modules/,
+                                loader: 'babel-loader',
+				query: {
+          			optional: ["es7.decorators", "es7.classProperties"]
+        		}
+			}
+		]
+	}
+};
+</pre>  
+<h4 class="text-white">
+参考
+<ul>
+  <li>
+    <a href='http://babeljs.io/blog/2015/06/07/react-on-es6-plus/'>React on ES6+</a>
+  </li>
+  <li>
+    <a href='http://babeljs.io/blog/2015/03/31/5.0.0/'>5.0.0 Released</a>
+  </li>
+
+</ul>
+</h4>
+</div>
+
+    <script src="bundle.js"></script>
+    <script src="../../assets/googlecodeprettify/prettify.js"></script>
+    <script src="../../js/jquery.js"></script>
+
+    <script type="text/javascript">
+
+  var $window = $(window)
+  // make code pretty
+  window.prettyPrint && prettyPrint()
+  $('pre').addClass('prettyprint');
+  prettyPrint();
+  $('pre').css("background","#000");
+  $('pre').css("font-size","1.2em");
+
+  	</script>
+	</body>
+</html>

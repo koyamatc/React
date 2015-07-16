@@ -1,0 +1,78 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px
+}
+body {
+  margin-top: 30px;
+  background-color: #333;
+}
+footer {
+  background-color: #333; 
+}
+div- {
+  border:2px solid #ccc;
+}
+.item {
+  height: 100px;
+}
+
+.itemxs- {
+  height: 50px;
+}
+
+
+.item {
+  height:95px;
+}
+
+.itemBtn{
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #000;
+  border-radius: 45%; 
+  height: 95px;
+}
+
+
+.itemBtn:hover 
+{
+  background-color: gold;
+  box-shadow: inset 0.5em -1.5em 3em 0.5em darkgreen;; 
+}
+
+.menu-row {
+  margin-top: 30px;
+}
+.text-black {
+  color: #000;
+}
+.text-white {
+  color: #fff;
+}
+.text-red {
+  color: #f00;
+}
+.text-yellow {
+  color: #ff0;
+}
+.text-pink {
+  color: pink;
+}
+#tlt {
+  color: yellow;
+}
+
+.post-list {
+  font-size: 1.3em;
+}
+
+.post-list a {
+  color: yellow;
+}
+
+footer a {
+  color: yellow;
+}

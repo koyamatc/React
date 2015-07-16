@@ -1,0 +1,91 @@
+/** logo style
+ ************** */ 
+div #logo {
+  height: 100px;
+}
+
+#logo {
+  font-size: 50px;
+  text-shadow: 4px 4px 0px #939393,
+               6px 6px 0px #1c1c1c;
+  margin-top: 10px;
+
+}
+
+#logo span {
+display: inline-block;
+position: relative;
+letter-spacing: -1px;
+-webkit-transition: all 0.2s ease-out;
+-moz-transition: all 0.2s ease-out;
+transition: all 0.2s ease-out;
+}
+
+#logo .logoChar0 {
+  color : #f00;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+#logo .logoChar1 {
+  color : #0f0;
+}
+#logo .logoChar2 {
+  color : gold;
+}
+#logo .logoChar3 {
+  color : #00f;
+  top: -7px;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+#logo .logoChar4 {
+  color : #0f0;
+  top:-20px;
+}
+#logo .logoChar5 {
+  color : #0ff;
+  top: -7px;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+#logo .logoChar6 {
+  color : #f0f;
+}
+#logo .logoChar7 {
+  color : #ff0;
+  top:-20px;
+}
+#logo .logoChar8 {
+  color : #999;
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+#logo .logoChar9 {
+  color : #000;
+  top: -10px;
+}
+#logo .logoChar10 {
+  color : #ccc;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+#logo .logoChar11 {
+  color : #0DD42B;
+  top: -10px;
+}
+#logo .logoChar12 {
+  color : #F22C16;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+
+.logoTrans12-enter {
+  color : #fff;
+  transform: scale(2.0);
+}
